@@ -3,33 +3,37 @@ import string
 import random
 import sys
 import os
-
+#Library
+    #int
+minimale_wachtwoorden = 1
+minimale_wachtwoordlengte = 8
+    #string
+hvl_ww = 'Hoeveel wachtwoorden wilt u maken? - '
+hvl_kk = 'Hoeveel karakters wilt u in uw wachtwoord(en) - '
 #Functies
-def wachtwoord_lengte():
-    lengte = int(input('Wachtwoord lengte? - '))
-    return lengte
-
 def invalid_reactie():
     print('U heeft een fout antwoord ingevult')
 
-def lengte_bepaling():
-    lengte = wachtwoord_lengte()
-    if lengte < 8:
-        antwoord = input('\nU heeft minder dan 8 karakters ingetypt, klopt dit? Dit is niet veilig. ja/nee - ')
+def lengte_bepaling(minimale,bericht):
+    minimale = int(minimale)
+    bericht = str(bericht)
+    lengte_variabel = int(input(bericht))
+    if lengte_variabel < minimale:
+        antwoord = input('\nU heeft minder dan {} karakters ingetypt, klopt dit? ja/nee - ', minimale)
         if antwoord == 'ja':
-            return lengte
+            return lengte_variabel
         elif antwoord == 'nee':
             wachtwoord_lengte()
         else:
             invalid_reactie()
             lengte_bepaling()
-    return lengte
+    return lengte_variabel
 
 #Complexiteit samenstellen
 while True:
     print('#' * 80 + '\n')
-    nummer = int(input('Hoeveel wachtwoorden? - '))
-    lengte = lengte_bepaling()
+    nummer = lengte_bepaling(minimale_wachtwoorden,hvl_ww)
+    lengte_wachtwoord = lengte_bepaling(minimale_wachtwoordlengte,hvl_kk)
 
     complexiteit = ''
     choice = input('\nWil je de interne library met karakters gebruiken?\n(Alternatief is zelf karakters intypen) ja/nee - ')
@@ -57,7 +61,7 @@ while True:
 #Passwords worden hier gegenereerd
     for p in range(nummer):
         password = ''
-        for c in range(lengte):
+        for c in range(lengtelengte_wachtwoord):
             password += random.choice(complexiteit)
         print('\n' + password)
     print('\n' + '#' * 80 + '\n')
