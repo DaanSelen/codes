@@ -15,20 +15,14 @@ def invalid_reactie():
     print('U heeft een fout antwoord ingevult')
 
 def lengte_bepaling(minimale,bericht):
-    minimale = int(minimale)
-    bericht = str(bericht)
-    lengte_variabel = int(input(bericht))
-    if lengte_variabel < minimale:
-        antwoord = input('\nU heeft minder dan {} karakters ingetypt, klopt dit? ja/nee - ', minimale)
+    print(bericht,end='')
+    lengte = int(input())
+    if lengte < minimale:
+        print('Je hebt minder dan '+ minimale +' karakters ingevult klopt dat? ja/nee - ')
+        antwoord = input()
         if antwoord == 'ja':
-            return lengte_variabel
-        elif antwoord == 'nee':
-            lengte_bepaling()
-        else:
-            invalid_reactie()
-            lengte_bepaling()
-    return lengte_variabel
-
+            return lengte
+    return lengte
 #Complexiteit samenstellen
 while True:
     print('#' * 80 + '\n')
@@ -58,7 +52,7 @@ while True:
         antwoord = input('\nVul hier je eigen karakters in: ')
         complexiteit = antwoord
 
-#Passwords worden hier gegenereerd
+    #Passwords worden hier gegenereerd
     for p in range(nummer):
         password = ''
         for c in range(lengte_wachtwoord):
