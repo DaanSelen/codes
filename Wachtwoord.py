@@ -23,7 +23,7 @@ def lengte_bepaling(minimale,bericht):
         if antwoord == 'ja':
             return lengte_variabel
         elif antwoord == 'nee':
-            wachtwoord_lengte()
+            lengte_bepaling()
         else:
             invalid_reactie()
             lengte_bepaling()
@@ -61,7 +61,7 @@ while True:
 #Passwords worden hier gegenereerd
     for p in range(nummer):
         password = ''
-        for c in range(lengtelengte_wachtwoord):
+        for c in range(lengte_wachtwoord):
             password += random.choice(complexiteit)
         print('\n' + password)
     print('\n' + '#' * 80 + '\n')
