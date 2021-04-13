@@ -4,9 +4,6 @@ import random
 import sys
 import os
 #Library
-    #int
-minimale_wachtwoorden = 1
-minimale_wachtwoordlengte = 8
     #string
 hvl_ww = 'Hoeveel wachtwoorden wilt u maken? - '
 hvl_kk = 'Hoeveel karakters wilt u in uw wachtwoord(en) - '
@@ -14,20 +11,15 @@ hvl_kk = 'Hoeveel karakters wilt u in uw wachtwoord(en) - '
 def invalid_reactie():
     print('U heeft een fout antwoord ingevult')
 
-def lengte_bepaling(minimale,bericht):
+def lengte_bepaling(bericht):
     print(bericht,end='')
     lengte = int(input())
-    if lengte < minimale:
-        print('Je hebt minder dan '+ minimale +' karakters ingevult klopt dat? ja/nee - ')
-        antwoord = input()
-        if antwoord == 'ja':
-            return lengte
     return lengte
 #Complexiteit samenstellen
 while True:
     print('#' * 80 + '\n')
-    nummer = lengte_bepaling(minimale_wachtwoorden,hvl_ww)
-    lengte_wachtwoord = lengte_bepaling(minimale_wachtwoordlengte,hvl_kk)
+    nummer = lengte_bepaling(hvl_ww)
+    lengte_wachtwoord = lengte_bepaling(hvl_kk)
 
     complexiteit = ''
     choice = input('\nWil je de interne library met karakters gebruiken?\n(Alternatief is zelf karakters intypen) ja/nee - ')
